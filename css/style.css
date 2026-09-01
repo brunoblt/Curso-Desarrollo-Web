@@ -1,0 +1,66 @@
+/* Inter Font*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* font-family: "Poppins", sans-serif; */
+
+:root {
+    --color-base: #f8f9fa;
+    /* HEX: fondo general */
+    --color-header-inicio: rgb(43, 45, 66);
+    /* RGB: tono oscuro para gradiente */
+    --color-header-medio: rgb(74, 78, 105);
+    /* RGB: tono intermedio */
+    --color-header-fin: rgb(239, 35, 60);
+    /* RGB: acento vibrante */
+    --color-seccion: hsl(220, 20%, 94%);
+    /* HSL: fondo suave desaturado */
+    --color-seccion-borde: hsl(220, 15%, 85%);
+    /* HSL: menor luminosidad para contraste */
+    --sombra-header: rgba(0, 0, 0, 0.2);
+    /* RGBA: transparencia para sombra */
+}
+
+body {
+    background-color: var(--color-base);
+    font-family: "Poppins", sans-serif;
+    color: var(--color-header-inicio);
+    margin: 0;
+    /* DevTools: ajustado margin a 0 para quitar el espacio por defecto del navegador */
+}
+
+header {
+    background: linear-gradient(135deg, var(--color-header-inicio) 0%, var(--color-header-medio) 50%, var(--color-header-fin) 100%);
+    color: white;
+    padding: 3rem;
+    box-shadow: 0 4px 12px var(--sombra-header);
+    /* DevTools: Marco con sombra */
+}
+
+.footer-fondo {
+    display: flex;
+    /* DevTools: Alinea los hijos en línea recta */
+    gap: 40px;
+    /* DevTools: Crea un espacio de XXpx entre cada opción */
+    background: url("../img/fondo-footer.jpg");
+    /* DevTools: imagen de fondo del footer */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 2rem; /* Le da altura y espacio interno al footer */
+}
+
+header img {
+    width: 180px;
+    height: auto;
+}
+
+section {
+    background-color: var(--color-seccion);
+    border: 1px solid var(--color-seccion-borde);
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.texto-destacado {
+    color: #FF00AE;
+}
