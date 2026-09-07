@@ -1,6 +1,12 @@
-/* Inter Font*/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-/* font-family: "Poppins", sans-serif; */
+/* === Reseteo básico === */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Paleta de colores */
 
 :root {
     --color-base: #f8f9fa;
@@ -19,48 +25,313 @@
     /* RGBA: transparencia para sombra */
 }
 
+/* === Estilos Generales de mi HTML === */
+
 body {
     background-color: var(--color-base);
+    /* Color de fondo base */
     font-family: "Poppins", sans-serif;
+    /* Tipografía */
     color: var(--color-header-inicio);
-    margin: 0;
-    /* DevTools: ajustado margin a 0 para quitar el espacio por defecto del navegador */
+    /* Color base del texto */
 }
+
+a {
+    text-decoration: none;
+    /* DevTools: quita las decoraciones a las etiquetas <a>, osea el subrayado */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    /* DevTools: para que las imagenes no tomen más tamaño que su contenedor la clase tarjeta el article */
+    display: block;
+    /* Evita un pequeño espacio blanco indeseado debajo de las imágenes */
+}
+
+/* === HEADER === */
 
 header {
-    background: linear-gradient(135deg, var(--color-header-inicio) 0%, var(--color-header-medio) 50%, var(--color-header-fin) 100%);
-    color: white;
-    padding: 3rem;
+    background: linear-gradient(135deg, rgb(194, 63, 116) 10%, rgb(123, 67, 153) 50%, rgb(54, 102, 169) 100%);
+    color: rgb(250, 250, 250);
     box-shadow: 0 4px 12px var(--sombra-header);
     /* DevTools: Marco con sombra */
-}
-
-.footer-fondo {
+    width: 100%;
+    padding: 1rem 2.5rem;
+    /* Le da aire a los costados y arriba/abajo al ícono */
     display: flex;
-    /* DevTools: Alinea los hijos en línea recta */
-    gap: 40px;
-    /* DevTools: Crea un espacio de XXpx entre cada opción */
-    background: url("../img/fondo-footer.jpg");
-    /* DevTools: imagen de fondo del footer */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 2rem; /* Le da altura y espacio interno al footer */
+    /* Alinea <a> y <ul> que son hijos de <header> en línea recta, uno al lado del otro */
+    justify-content: space-between;
+    /* Los separa <a> y <ul>, uno en cada lado */
+    align-items: center;
+    /* Alinea verticalmente los elementos para que queden centrados en altura */
 }
 
 header img {
-    width: 180px;
+    width: 12rem;
+    max-width: 100%;
+    /* Por seguridad en pantallas muy chicas */
     height: auto;
+    /* Mantiene la proporción y no deforma la imagen */
+    display: block;
+    /* Quita espacios extra por defecto */
+}
+
+header nav ul {
+    list-style: none;
+    /* DevTools: quita las viñetas de la lista */
+    display: flex;
+    /* Alinea <a> y <ul> que son hijos de <header> en línea recta, uno al lado del otro */
+    gap: 1.5rem;
+    /* Crea un espacio entre cada lista */
+    justify-content: space-evenly;
+}
+
+header nav ul li a {
+    color: rgb(242, 235, 227);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: inline-block;
+    /* Permite que el transform funcione correctamente */
+    transition: transform 0.2s ease, color 0.2s ease;
+    /* Suaviza el escalado y el cambio de color para el hover */
+}
+
+header nav ul li a:hover {
+    color: rgb(38, 50, 56);
+    transform: scale(1.2);
+}
+
+/* === MAIN === */
+
+main {
+    color: rgb(85, 10, 1);
+    background-color: rgb(242, 235, 227);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+    /* Crea un espacio entre cada lsita  */
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.seccion-destacada {
+    color: rgb(242, 235, 227);
+    background-color: rgb(120, 50, 45);
+    display: flex;
+    flex-direction: column;
+    /* Los deja uno de bajo del otro */
+    justify-content: center;
+    align-items: center;
+    /* Los Centra en el medio de la pantalla */
+    gap: 1rem;
+    padding: 1rem;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 8px;
+}
+
+.seccion-destacada h2 {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.seccion-destacada a {
+    color: rgb(242, 235, 227);
+    background-color: rgb(154, 15, 0);
+    border: 2px solid var(--color-seccion-borde);
+    /* borde de "ver más" */
+    text-decoration: none;
+    /* Quita el subrayado de "ver más" */
+    padding: 0.6rem 1.2rem;
+    /* agrega mas aire a mi bolsa de papitas en ambas direcciones */
+    display: inline-block;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.seccion-destacada a:hover {
+    transform: scale(1.05);
+    background-color: rgb(180, 20, 5);
 }
 
 section {
-    background-color: var(--color-seccion);
-    border: 1px solid var(--color-seccion-borde);
-    margin: 1rem;
+    color: rgb(38, 50, 56);
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    /* Permite que bajen si no entran en pantalla */
+    gap: 2rem;
+    width: 100%;
     padding: 1rem;
-    border-radius: 15px;
 }
 
 .texto-destacado {
-    color: #FF00AE;
+    color: rgb(255, 0, 0);
+    /* Destacar el texto */
+}
+
+.articulo-destacado {
+    background-color: rgb(255, 212, 184);
+    flex: 1 1 300px;
+    /* Crece para llenar el espacio, pero su base mínima es 300px */
+    max-width: 380px;
+    /* Asegura un ancho prolijo y parejo en todas las tarjetas, en servicios.html tengo 5 tarjetas y en conocenos 1, para que no desborde la que queda sola */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Imágenes dentro de las tarjetas */
+
+.articulo-destacado img {
+    width: 100%;
+    max-height: 260px;
+    /* Tope máximo de alto */
+    object-fit: contain;
+    /* Muestra la foto 100% completa sin recortar ningún borde */
+    border-radius: 6px;
+    display: block;
+}
+
+.articulo-destacado h2 {
+    font-size: 1.4rem;
+    color: rgb(85, 10, 1);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.articulo-destacado p {
+    font-size: 0.95rem;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para el texto descriptivo de las fotos, de galería*/
+
+figure figcaption {
+    font-size: 1.2rem;
+    color: rgb(85, 10, 1);
+    font-weight: 600;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+/* Sección de Contacto, elementos embebidos <iframe> */
+/* Contenedor flexible para alinear mapa y video lado a lado */
+
+.contenedor-multimedia {
+    display: flex;
+    flex-wrap: wrap;
+    /* Si la pantalla es chica, bajan a una columna */
+    justify-content: center;
+    /* Centra los dos iframes horizontalmente */
+    align-items: center;
+    gap: 2rem;
+    /* Espacio uniforme entre mapa y video */
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 2.5rem;
+    /* Separación superior respecto al formulario */
+    padding: 1rem;
+}
+
+/* Tamaño responsivo para que ningún iframe desborde */
+
+.contenedor-multimedia iframe {
+    flex: 1 1 350px;
+    /* Base mínima de 350px, crecen parejos */
+    max-width: 560px;
+    /* Tope máximo para mantener buena proporción */
+    height: 315px;
+    /* Altura estándar uniforme para ambos */
+    border: none;
+    /* Quita el borde por defecto */
+    border-radius: 8px;
+    /* Bordes redondeados acordes al diseño */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* === FOOTER === */
+
+/* Contenedor principal */
+
+footer {
+    background-image: url("../img/fondo-footer.jpg");
+    /* Imagen de fondo del footer */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+    /* Le da altura y espacio interno al footer */
+    display: flex;
+    /* Alinea los hijos en línea recta */
+    flex-wrap: wrap;
+    justify-content: center;
+    /* A diferencia de space-between de <header> aca centra en el medio */
+    align-items: center;
+    /* Alinea verticalmente los elementos para que queden centrados en altura */
+    gap: 3rem;
+    /* Crea un espacio entre copyright y las redes sociales */
+}
+
+/* Lista de redes sociales */
+
+footer ul {
+    list-style: none;
+    /* Quita las viñetas de la lista del footer */
+    display: flex;
+    /* Los iconos/enlaces queden uno al lado del otro */
+    gap: 3rem;
+    /* Crea un espacio entre cada red social */
+}
+
+/* Íconos / Imágenes */
+
+/* Tamaño de los iconos/imágenes dentro de los enlaces del footer */
+
+footer ul li a img {
+    width: 2rem;
+    /* Tamaño del ícono */
+    height: auto;
+    /* Mantiene la proporción original */
+    display: block;
+    /* Evita espacios extra debajo de la imagen */
+    transition: transform 0.2s ease;
+    /* Hace la animación suave */
+}
+
+/* Efecto hover sobre los íconos */
+
+footer a:hover img {
+    transform: scale(1.2);
+    /* Agranda ligeramente el icono */
+}
+
+/* Texto de copyright */
+
+/* Estilos específicos para el texto <p> del footer */
+
+footer p {
+    color: rgb(242, 235, 227);
+    /* El color del texto */
+    font-size: 0.9rem;
+    /* El tamaño de letra */
+    font-weight: 500;
 }
