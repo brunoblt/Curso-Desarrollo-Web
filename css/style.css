@@ -1,9 +1,11 @@
-/* === Reseteo básico === */
+/* ===== Reseteo básico ===== */
+/* Selectores universales */
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    /* Para asegurarme de que cualquier elemento que creo o estilizo después respete siempre el ancho exacto que le asigno */
 }
 
 /* Paleta de colores */
@@ -49,7 +51,7 @@ img {
     /* Evita un pequeño espacio blanco indeseado debajo de las imágenes */
 }
 
-/* === HEADER === */
+/* ===== HEADER ===== */
 
 header {
     background: linear-gradient(135deg, rgb(194, 63, 116) 10%, rgb(123, 67, 153) 50%, rgb(54, 102, 169) 100%);
@@ -57,7 +59,7 @@ header {
     box-shadow: 0 4px 12px var(--sombra-header);
     /* DevTools: Marco con sombra */
     width: 100%;
-    padding: 1rem 2.5rem;
+    padding: 1.5rem 3rem;
     /* Le da aire a los costados y arriba/abajo al ícono */
     display: flex;
     /* Alinea <a> y <ul> que son hijos de <header> en línea recta, uno al lado del otro */
@@ -103,7 +105,7 @@ header nav ul li a:hover {
     transform: scale(1.2);
 }
 
-/* === MAIN === */
+/* ====== MAIN ====== */
 
 main {
     color: rgb(85, 10, 1);
@@ -132,10 +134,10 @@ h1 {
     align-items: center;
     /* Los Centra en el medio de la pantalla */
     gap: 1rem;
-    padding: 1rem;
+    padding: 1.5rem;
     width: 100%;
     max-width: 800px;
-    border-radius: 8px;
+    border-radius: 6px;
 }
 
 .seccion-destacada h2 {
@@ -150,10 +152,10 @@ h1 {
     /* borde de "ver más" */
     text-decoration: none;
     /* Quita el subrayado de "ver más" */
-    padding: 0.6rem 1.2rem;
+    padding: 0.6rem 1.5rem;
     /* agrega mas aire a mi bolsa de papitas en ambas direcciones */
     display: inline-block;
-    border-radius: 4px;
+    border-radius: 6px;
     font-weight: 600;
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
@@ -171,7 +173,7 @@ section {
     /* Permite que bajen si no entran en pantalla */
     gap: 2rem;
     width: 100%;
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
 .texto-destacado {
@@ -189,8 +191,8 @@ section {
     flex-direction: column;
     align-items: center;
     gap: 0.7rem;
-    padding: 1rem;
-    border-radius: 8px;
+    padding: 1.5rem;
+    border-radius: 6px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
 }
 
@@ -211,27 +213,214 @@ section {
     color: rgb(85, 10, 1);
     text-align: center;
     margin: 0;
-    padding: 0;
+    padding: 1.5rem;
 }
 
 .articulo-destacado p {
     font-size: 0.95rem;
     text-align: left;
     margin: 0;
-    padding: 0;
+    padding: 1.5rem;
 }
 
-/* Estilos para el texto descriptivo de las fotos, de galería*/
+/* ===== Estilos de GALERÍA ===== */
+/* Estilos para el texto descriptivo de las fotos, de la galería*/
 
 figure figcaption {
-    font-size: 1.2rem;
+    width: 100%;
+    font-size: 1rem;
     color: rgb(85, 10, 1);
     font-weight: 600;
     text-align: center;
-    padding: 0.5rem;
+    padding: 0.4rem;
 }
 
-/* Sección de Contacto, elementos embebidos <iframe> */
+/* Galería Base (Mobile: 1 columna natural) */
+/* === Mobile First === */
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Base Mobil 1 columna */
+    gap: 1rem;
+    /* Un poco de separación entre las imagenes */
+    padding: 1.5rem;
+    /* Un poco más de aire en mi contenedor */
+}
+
+.galeria-grid figure {
+    display: flex;
+    flex-direction: column;
+    height: 280px;
+    /* Altura fija */
+    margin: 0;
+    /* No haría falta, al principio del CSS hay un reseteo básico */
+    overflow: hidden;
+    /* Oculta cualquier elemento/contenido que "sobresalga" o se "desborde" de los límites de su elemento contenedor */
+}
+
+.galeria-grid img {
+    width: 100%;
+    /* Para que ocupe todo el ancho disponible del contenedor padre */
+    flex: 1;
+    min-height: 0;
+    /* Para que ocupe todo el alto disponible del conetenedor padre */
+    display: block;
+    object-fit: cover;
+}
+
+/* === Tablet (768px a 1023px: 2 columnas naturales) === */
+/* Media Queris / Mis estilos condicionales para tamaño de pantallas */
+
+@media (min-width: 768px) {
+
+    /* a partir de 768 (medida estandar ancho minimo) inclusive o más se aplican los siguientes parametros */
+    .galeria-grid {
+        grid-template-columns: 1fr 1fr;
+        /* 2 columnas que ocupan cada una el mismo espacio */
+    }
+}
+
+/* === Desktop (1024px o más: Grilla por áreas) === */
+/* DevTools: comprobe con la erramienta inspeccionar en mi navegador y funciona a la perfección  */
+
+@media (min-width: 1024px) {
+
+    /* a partir de 1024 inclusive o más se aplican los siguientes parametros */
+    .galeria-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        /* 3 columnas que ocupan cada una el mismo espacio */
+        grid-template-rows: 280px 280px 280px;
+        /* 3 filas */
+        grid-template-areas:
+            "vertical foto3 foto1"
+            "vertical foto4 foto2"
+            "horizontal horizontal horizontal";
+        gap: 1rem;
+    }
+
+    /* DevTools: comprobe con la erramienta inspeccionar en mi navegador y funciona a la perfección  */
+
+    .galeria-grid figure {
+        height: 100%;
+    }
+
+    /* Asignación de áreas a cada imagen */
+    /* La asignación de mis areas para las imagenes de Galería, deben estar contenidas dentro de "Media Query" */
+
+    .foto-vertical {
+        grid-area: vertical;
+    }
+
+    .foto-horizontal {
+        grid-area: horizontal;
+    }
+
+    .foto-1 {
+        grid-area: foto1;
+    }
+
+    .foto-2 {
+        grid-area: foto2;
+    }
+
+    .foto-3 {
+        grid-area: foto3;
+    }
+
+    .foto-4 {
+        grid-area: foto4;
+    }
+}
+
+/* ========== Servicios Grid ========= */
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Base Mobil 1 columna */
+    gap: 1rem;
+    /* Un poco de separación entre las tarjetas de servicios */
+    padding: 1.5rem;
+    /* Un poco más de aire en mi contenedor */
+}
+
+/* Anide un selerctor dentro de otro */
+
+.servicios-grid .articulo-destacado {
+    height: 280px;
+    margin: 0;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border-left: 4px solid rgb(85, 10, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.servicios-grid .articulo-destacado h2 {
+    font-size: 1.25rem;
+    color: rgb(85, 10, 1);
+    margin: 0;
+    padding-bottom: 0.5rem;
+}
+
+.servicios-grid .articulo-destacado p {
+    font-size: 0.95rem;
+    text-align: left;
+    line-height: 1.5;
+    color: rgb(38, 50, 56);
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+
+    /* a partir de 768 (medida estandar ancho minimo) inclusive o más se aplican los siguientes parametros */
+    .servicios-grid {
+        grid-template-columns: 1fr 1fr;
+        /* 2 columnas que ocupan cada una el mismo espacio */
+    }
+}
+
+@media (min-width: 1024px) {
+    .servicios-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 280px 280px;
+        grid-template-areas:
+            "art1 art3 art4"
+            "art2 art3 art5";
+        gap: 1rem;
+    }
+
+    .servicios-grid .articulo-destacado {
+        height: 100%;
+        /* Cada tarjeta llena su celda asignada */
+    }
+
+    /* Asignación de cada tarjeta a su área */
+
+    .art-1 {
+        grid-area: art1;
+    }
+
+    .art-2 {
+        grid-area: art2;
+    }
+
+    .servicios-grid .art-3 {
+        grid-area: art3;
+        height: 280px;
+        align-self: center;
+    }
+
+    .art-4 {
+        grid-area: art4;
+    }
+
+    .art-5 {
+        grid-area: art5;
+    }
+}
+
+/* === Sección de Contacto, elementos embebidos <iframe> === */
 /* Contenedor flexible para alinear mapa y video lado a lado */
 
 .contenedor-multimedia {
@@ -247,7 +436,7 @@ figure figcaption {
     max-width: 1200px;
     margin-top: 2.5rem;
     /* Separación superior respecto al formulario */
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
 /* Tamaño responsivo para que ningún iframe desborde */
@@ -261,12 +450,12 @@ figure figcaption {
     /* Altura estándar uniforme para ambos */
     border: none;
     /* Quita el borde por defecto */
-    border-radius: 8px;
+    border-radius: 6px;
     /* Bordes redondeados acordes al diseño */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* === FOOTER === */
+/* ===== FOOTER ===== */
 
 /* Contenedor principal */
 
@@ -278,7 +467,7 @@ footer {
     background-position: center;
     width: 100%;
     margin-top: 1rem;
-    padding: 1rem;
+    padding: 1.5rem;
     /* Le da altura y espacio interno al footer */
     display: flex;
     /* Alinea los hijos en línea recta */
