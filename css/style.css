@@ -48,7 +48,7 @@ header {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     /* profundidad y elevación realista */
     width: 100%;
-    padding: 1.5rem 3rem;
+    padding: 1.2rem 1.2rem;
     /* Le da aire a los costados y arriba/abajo al ícono */
     /* display: flex; /* Alinea <a> y <ul> que son hijos de <header> en línea recta, uno al lado del otro */
     /* justify-content: space-between; /* Los separa <a> y <ul>, uno en cada lado */
@@ -56,7 +56,7 @@ header {
 }
 
 header img {
-    width: 12rem;
+    width: 11rem;
     max-width: 100%;
     /* Por seguridad en pantallas muy chicas */
     height: auto;
@@ -65,8 +65,6 @@ header img {
     /* Quita espacios extra por defecto */
     border-radius: 6px;
     /* bordes redondeados */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    /* suaviza los bordes */
 }
 
 header nav ul {
@@ -123,14 +121,7 @@ header nav ul {
 /* Estado cuando pasás el mouse por encima de la nav bar */
 .estilo-menu:hover {
     color: rgb(14, 74, 121);
-    transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    border-radius: 1rem;
-}
-
-/* class="activo" estado fijo de la página donde estoy de la nav bar */
-.estilo-menu.activo {
-    color: rgb(14, 74, 121);
+    transform: scale(1.2);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     border-radius: 1rem;
 }
@@ -139,6 +130,13 @@ header nav ul {
 .estilo-menu:active {
     text-decoration: underline;
     color: rgb(20, 110, 100);
+}
+
+/* class="activo" estado fijo de la página donde estoy de la nav bar */
+.estilo-menu.activo {
+    color: rgb(14, 74, 121);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    border-radius: 1rem;
 }
 
 /* ====== MAIN ====== */
@@ -260,7 +258,7 @@ section {
     padding: 1.5rem;
 }
 
-/* ===== Estilos de "EL CONSULTORIO" ===== */
+/* ===== Estilos de elconsultorio.html ===== */
 /* Estilos para el texto descriptivo de las fotos, de la galería*/
 
 figure figcaption {
@@ -272,6 +270,7 @@ figure figcaption {
     padding: 0.5rem;
 }
 
+/* ===== elconsultorio.html Grid ===== */
 /* Galería Base (Mobile: 1 columna natural) */
 /* === Mobile First === */
 
@@ -394,7 +393,7 @@ figure figcaption {
     }
 }
 
-/* ========== "TRATAMIENTOS" Grid ========= */
+/* ========== tratamientos.html Grid ========== */
 
 .tratamientos-grid {
     display: grid;
@@ -481,7 +480,7 @@ figure figcaption {
     }
 }
 
-/* === Sección de Contacto, elementos embebidos <iframe> === */
+/* === Sección de Contacto.html, elementos embebidos <iframe> === */
 /* Contenedor flexible para alinear mapa y video lado a lado */
 
 .contenedor-multimedia {
@@ -503,8 +502,9 @@ figure figcaption {
 /* Tamaño responsivo para que ningún iframe desborde */
 
 .contenedor-multimedia iframe {
-    flex: 1 1 350px;
-    /* Base mínima de 350px, crecen parejos */
+    flex: 1 1 280px;
+    /* Base mínima de 280px, crecen parejos */
+    width: 100%;
     max-width: 560px;
     /* Tope máximo para mantener buena proporción */
     height: 315px;
@@ -516,69 +516,130 @@ figure figcaption {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* ========== tukinesiolgo.html Grid ========= */
+/* Base / Mobile / Tablet (menos de 1024px): 1 sola columna ordenada hacia abajo */
+.kine-grid-seccion {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "foto1"
+        "articulo"
+        "foto2";
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.kine-articulo {
+    grid-area: articulo;
+    text-align: center;
+}
+
+.kine-foto-1 {
+    grid-area: foto1;
+    text-align: center;
+}
+
+.kine-foto-2 {
+    grid-area: foto2;
+    text-align: center;
+}
+
+.kine-grid-seccion img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Desktop (1024px en adelante): 2 columnas */
+@media (min-width: 1024px) {
+    .kine-grid-seccion {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "foto1 articulo"
+            "foto2 articulo";
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .kine-articulo {
+        align-self: center;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .kine-foto-1,
+    .kine-foto-2 {
+        max-width: 380px;
+        margin: 0 auto;
+    }
+}
+
 /* ===== FOOTER ===== */
-
 /* Contenedor principal */
-
 footer {
     background: linear-gradient(200deg, rgb(0, 132, 166) 10%, rgb(0, 186, 195) 50%, rgb(0, 255, 217) 100%);
-    /* Imagen de fondo del footer */
     width: 100%;
     margin-top: 1rem;
     padding: 1.5rem;
-    /* Le da altura y espacio interno al footer */
     display: flex;
-    /* Alinea los hijos en línea recta */
     flex-wrap: wrap;
     justify-content: center;
-    /* A diferencia de space-between de <header> aca centra en el medio */
     align-items: center;
-    /* Alinea verticalmente los elementos para que queden centrados en altura */
     gap: 3rem;
-    /* Crea un espacio entre copyright y las redes sociales */
 }
 
 /* Lista de redes sociales */
-
-footer ul {
+.redes-footer {
     list-style: none;
-    /* Quita las viñetas de la lista del footer */
     display: flex;
-    /* Los iconos/enlaces queden uno al lado del otro */
-    gap: 3rem;
-    /* Crea un espacio entre cada red social */
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    /* Anula el margen por defecto de Bootstrap */
 }
 
-/* Íconos / Imágenes */
-
-/* Tamaño de los iconos/imágenes dentro de los enlaces del footer */
-
-footer ul li a img {
-    width: 2rem;
-    /* Tamaño del ícono */
-    height: auto;
-    /* Mantiene la proporción original */
-    display: block;
-    /* Evita espacios extra debajo de la imagen */
-    transition: transform 0.2s ease;
-    /* Hace la animación suave */
+/* Enlaces de los íconos (formato circular interactivo) */
+.redes-footer a {
+    text-decoration: none;
+    display: inline-flex;
+    /* Permite que el transform funcione correctamente */
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-radius 0.2s ease;
+    /* Trannsiciones sean suaves */
 }
 
-/* Efecto hover sobre los íconos */
+/* Íconos de Bootstrap */
+.redes-footer i {
+    font-size: 1.9rem;
+    color: rgb(14, 74, 121);
+    transition: color 0.2s ease;
+}
 
-footer a:hover img {
-    transform: scale(1.2);
-    /* Agranda ligeramente el icono */
+/* Efecto hover interactivo: agranda el botón, cambia el color y proyecta sombra */
+.redes-footer a:hover {
+    transform: scale(1.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    border-radius: 1rem;
+    background-color: rgba(0, 255, 217, 0.25);
+}
+
+.redes-footer a:hover i {
+    color: rgb(242, 235, 227);
 }
 
 /* Texto de copyright */
-
-/* Estilos específicos para el texto <p> del footer */
-
 footer p {
     color: rgb(242, 235, 227);
-    /* El color del texto */
-    font-size: 0.9rem;
-    /* El tamaño de letra */
+    font-size: 1.1rem;
     font-weight: 500;
+    margin: 0;
 }
