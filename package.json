@@ -1,0 +1,20 @@
+{
+  "name": "curso-desarrollo-web",
+  "version": "1.0.0",
+  "description": "Bienvenido al repositorio de mi proyecto para el curso de **Desarrollo Web**. \r Este espacio reúne el trabajo y las prácticas que vengo desarrollando a lo largo de las clases, aplicando maquetación moderna, diseño responsive y control de versiones con Git.\r ---\r # 🚀 Sitio en Producción\r Podés ver y navegar el sitio en vivo a través de GitHub Pages:\r [Ver proyecto online](https://brunoblt.github.io/Curso-Desarrollo-Web/)\r ---\r # 💡 Sobre el Proyecto\r El objetivo principal de este sitio es construir una web sólida y atractiva, cuidando tanto la experiencia de usuario en computadoras como en dispositivos móviles.\r # ¿Qué incluye este desarrollo?\r * **Estructura HTML5 semántica:** Código ordenado, claro y accesible.\r * **Diseño adaptativo (Responsive):** Maquetación fluida usando el sistema de grillas de Bootstrap y estilos personalizados en CSS.\r * **Componentes clave:** Barra de navegación, sección de presentación (\"Sobre Mí\") y distribución en columnas.\r * **Flujo de trabajo profesional:** Control de versiones con Git, ramas (`feature branches`) y commits descriptivos.\r ---\r # 🛠️ Herramientas utilizadas\r * **Lenguajes:** HTML5, CSS3\r * **Framework:** Bootstrap 5\r * **Control de versiones y hosting:** Git, GitHub, GitHub Pages.",
+  "homepage": "https://github.com/brunoblt/Curso-Desarrollo-Web#readme",
+  "bugs": {
+    "url": "https://github.com/brunoblt/Curso-Desarrollo-Web/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunoblt/Curso-Desarrollo-Web.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

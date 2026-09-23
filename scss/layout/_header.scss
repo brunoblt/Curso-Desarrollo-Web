@@ -1,0 +1,77 @@
+@use "../utilities/variables" as *;
+@use "../utilities/extend" as *;
+@use "../utilities/mixin" as *;
+
+// nesting es anidar los selectores dentro de header en este caso
+
+header {
+    @extend %estructura-header;
+
+    img {
+        width: 11rem;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 6px;
+    }
+
+    nav ul {
+        list-style: none;
+        @include flex(null, center, space-evenly, 1.5rem);
+    }
+
+    .hamburguesa {
+        border: 2px solid $color-azul-profundo;
+        padding: 0.4rem 0.8rem;
+        border-radius: 6px;
+        background-color: transparent;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+            background-color: rgba(14, 74, 121, 0.15);
+            transform: scale(1.1);
+        }
+    }
+
+    .hamburguesa:hover {
+        background-color: rgba(14, 74, 121, 0.15);
+        transform: scale(1.1);
+    }
+
+    .estilo-menu {
+        color: $color-texto-claro;
+        text-decoration: none;
+        font-size: 1.4rem;
+        font-weight: bold;
+        display: inline-block;
+        transition: transform 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-radius 0.2s ease;
+        border-radius: 6px;
+        padding: 0.5rem;
+
+        &:link {
+            color: $color-texto-claro;
+        }
+
+        &:visited {
+            color: $color-visitado;
+        }
+
+        &:hover {
+            color: $color-azul-profundo;
+            transform: scale(1.2);
+            box-shadow: 0 4px 12px $sombra-imagenes;
+            border-radius: 1rem;
+        }
+
+        &:active {
+            text-decoration: underline;
+            color: rgb(20, 110, 100);
+        }
+
+        &.activo {
+            color: $color-azul-profundo;
+            box-shadow: 0 4px 12px $sombra-imagenes;
+            border-radius: 1rem;
+        }
+    }
+}

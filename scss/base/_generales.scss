@@ -1,0 +1,19 @@
+@use "../utilities/variables" as *;
+@use "../utilities/extend" as *;
+@use "../utilities/mixin" as *;
+
+body {
+    background-color: $color-azul-profundo;
+    font-family: $fuente;
+    color: $color-texto-claro;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}

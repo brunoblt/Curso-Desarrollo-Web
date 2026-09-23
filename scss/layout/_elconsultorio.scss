@@ -1,0 +1,102 @@
+@use "../utilities/variables" as *;
+@use "../utilities/extend" as *;
+@use "../utilities/mixin" as *;
+
+
+.elconsultorio-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.5rem;
+
+    figure {
+        display: flex;
+        flex-direction: column;
+        height: 280px;
+        margin: 0;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            flex: 1;
+            min-height: 0;
+            display: block;
+            object-fit: cover;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px $sombra-imagenes;
+        }
+
+        figcaption {
+            width: 100%;
+            font-size: 1rem;
+            color: $color-texto-claro;
+            font-weight: 600;
+            text-align: center;
+            padding: 0.5rem;
+        }
+    }
+}
+
+.escritorio {
+    display: none;
+}
+
+// Vista de Tablet
+@include tablet {
+    .elconsultorio-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+// Vista de Escritorio "Desktop"
+@include escritorio {
+    .elconsultorio-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 280px 280px 280px;
+        grid-template-areas:
+            "vertical foto3 foto1"
+            "vertical foto4 foto2"
+            "horizontal horizontal horizontal";
+        gap: 1rem;
+    }
+
+    .movil {
+        display: none;
+    }
+
+    .escritorio {
+        display: block;
+    }
+
+    .elconsultorio-grid figure {
+        height: 100%;
+    }
+
+    .elconsultorio-grid figure:focus {
+        box-shadow: 5px 5px 10px $sombra-focus;
+    }
+
+    .foto-vertical {
+        grid-area: vertical;
+    }
+
+    .foto-horizontal {
+        grid-area: horizontal;
+    }
+
+    .foto-1 {
+        grid-area: foto1;
+    }
+
+    .foto-2 {
+        grid-area: foto2;
+    }
+
+    .foto-3 {
+        grid-area: foto3;
+    }
+
+    .foto-4 {
+        grid-area: foto4;
+    }
+}

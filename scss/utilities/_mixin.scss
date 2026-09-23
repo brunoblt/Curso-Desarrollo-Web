@@ -1,0 +1,31 @@
+// Flexx
+@mixin flex($direccion, $alinear, $justificar, $gap) {
+    display: flex;
+    flex-direction: $direccion;
+    align-items: $alinear;
+    justify-content: $justificar;
+    gap: $gap;
+}
+
+// Grid
+@mixin grid($columnas, $filas, $areas, $gap) {
+    display: grid;
+    grid-template-columns: $columnas;
+    grid-template-rows: $filas;
+    grid-template-areas: $areas;
+    gap: $gap;
+}
+
+// Vista de Tablet
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+// Vista de Escritorio "Desktop"
+@mixin escritorio {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}

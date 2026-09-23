@@ -1,0 +1,24 @@
+@use "variables" as *;
+@use "mixin" as *;
+
+// Molde base con lo que comparten ambas barras
+%estructura-barra {
+    background: linear-gradient(200deg, $color-azul-oceano 10%, $color-turquesa 50%, $color-cian-brillante 100%);
+    width: 100%;
+}
+
+// Estructura HEADER
+%estructura-header {
+    @extend %estructura-barra;
+    color: $color-texto-claro;
+    box-shadow: 0 4px 12px $sombra-imagenes;
+    padding: 1.2rem 1.2rem;
+}
+
+// Estructura FOOTER
+%estructura-footer {
+    @extend %estructura-barra;
+    margin-top: 1rem;
+    padding: 1.5rem;
+    @include flex(null, center, center, 3rem);
+}

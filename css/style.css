@@ -1,645 +1,316 @@
-/*
-.color1 { color: rgb(14, 74, 121); }
-.color2 { color: rgb(0, 96, 140); }
-.color3 { color: rgb(0, 132, 166); }
-.color4 { color: rgb(0, 186, 195); }
-.color5 { color: rgb(0, 255, 217); }
-*/
-
-/* ===== Reseteo básico ===== */
-/* Selectores universales */
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    /* Para asegurarme de que cualquier elemento que creo o estilizo después respete siempre el ancho exacto que le asigno */
+footer, header {
+  background: linear-gradient(200deg, rgb(0, 132, 166) 10%, rgb(0, 186, 195) 50%, rgb(0, 255, 217) 100%);
+  width: 100%;
 }
 
-/* === Estilos Generales de mi HTML === */
+header {
+  color: rgb(242, 235, 227);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  padding: 1.2rem 1.2rem;
+}
+
+footer {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 body {
-    background-color: rgb(14, 74, 121);
-    /* Color de fondo base */
-    font-family: "Poppins", sans-serif;
-    /* Tipografía */
-    color: rgb(14, 74, 121);
-    /* Color base del texto */
+  background-color: rgb(14, 74, 121);
+  font-family: "Poppins", sans-serif;
+  color: rgb(242, 235, 227);
 }
 
 a {
-    text-decoration: none;
-    /* DevTools: quita las decoraciones a las etiquetas <a>, osea el subrayado */
+  text-decoration: none;
 }
 
 img {
-    max-width: 100%;
-    height: auto;
-    /* DevTools: para que las imagenes no tomen más tamaño que su contenedor la clase tarjeta el article */
-    display: block;
-    /* Evita un pequeño espacio blanco indeseado debajo de las imágenes */
-}
-
-/* ===== HEADER ===== */
-
-header {
-    background: linear-gradient(200deg, rgb(0, 132, 166) 10%, rgb(0, 186, 195) 50%, rgb(0, 255, 217) 100%);
-    color: rgb(242, 235, 227);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    /* profundidad y elevación realista */
-    width: 100%;
-    padding: 1.2rem 1.2rem;
-    /* Le da aire a los costados y arriba/abajo al ícono */
-    /* display: flex; /* Alinea <a> y <ul> que son hijos de <header> en línea recta, uno al lado del otro */
-    /* justify-content: space-between; /* Los separa <a> y <ul>, uno en cada lado */
-    /* align-items: center; /* Alinea verticalmente los elementos para que queden centrados en altura */
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 header img {
-    width: 11rem;
-    max-width: 100%;
-    /* Por seguridad en pantallas muy chicas */
-    height: auto;
-    /* Mantiene la proporción y no deforma la imagen */
-    display: block;
-    /* Quita espacios extra por defecto */
-    border-radius: 6px;
-    /* bordes redondeados */
+  width: 11rem;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
 }
-
 header nav ul {
-    list-style: none;
-    /* DevTools: quita las viñetas de la lista */
-    display: flex;
-    /* Alinea los <li> que son hijos de <ul> en línea recta, uno al lado del otro */
-    gap: 1.5rem;
-    /* Crea un espacio entre cada lista */
-    justify-content: space-evenly;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1.5rem;
 }
-
-/* Botón hamburguesa personalizado */
-.hamburguesa {
-    border: 2px solid rgb(14, 74, 121);
-    padding: 0.4rem 0.8rem;
-    border-radius: 6px;
-    background-color: transparent;
-    transition: background-color 0.2s ease, transform 0.2s ease;
+header .hamburguesa {
+  border: 2px solid rgb(14, 74, 121);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  background-color: transparent;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
-
-/* el hover funciona explendido en la erramienta de f12 */
-/* Efecto hover de la hamburguesa */
-.hamburguesa:hover {
-    background-color: rgba(14, 74, 121, 0.15);
-    transform: scale(1.1);
+header .hamburguesa:hover {
+  background-color: rgba(14, 74, 121, 0.15);
+  transform: scale(1.1);
 }
-
-.estilo-menu {
-    color: rgb(242, 235, 227);
-    text-decoration: none;
-    font-size: 1.4rem;
-    font-weight: bold;
-    display: inline-block;
-    /* Permite que el transform funcione correctamente */
-    transition: transform 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-radius 0.2s ease;
-    /* Suaviza el escalado y el cambio de color para el hover, y los bordes */
-    border-radius: 6px;
-    /* Suaviza los bordes (redondeados) */
-    padding: 0.5rem;
+header .hamburguesa:hover {
+  background-color: rgba(14, 74, 121, 0.15);
+  transform: scale(1.1);
 }
-
-/* === Orden LVHA === */
-/* Estado de las páginas no visitadas */
-.estilo-menu:link {
-    color: rgb(242, 235, 227);
+header .estilo-menu {
+  color: rgb(242, 235, 227);
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-radius 0.2s ease;
+  border-radius: 6px;
+  padding: 0.5rem;
 }
-
-/* Estado de la página ya visitadas */
-.estilo-menu:visited {
-    color: rgb(218, 195, 160);
+header .estilo-menu:link {
+  color: rgb(242, 235, 227);
 }
-
-/* Estado cuando pasás el mouse por encima de la nav bar */
-.estilo-menu:hover {
-    color: rgb(14, 74, 121);
-    transform: scale(1.2);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    border-radius: 1rem;
+header .estilo-menu:visited {
+  color: rgb(218, 195, 160);
 }
-
-/* Estado de la página que le damos click en la nav bar */
-.estilo-menu:active {
-    text-decoration: underline;
-    color: rgb(20, 110, 100);
+header .estilo-menu:hover {
+  color: rgb(14, 74, 121);
+  transform: scale(1.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
 }
-
-/* class="activo" estado fijo de la página donde estoy de la nav bar */
-.estilo-menu.activo {
-    color: rgb(14, 74, 121);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    border-radius: 1rem;
+header .estilo-menu:active {
+  text-decoration: underline;
+  color: rgb(20, 110, 100);
 }
-
-/* ====== MAIN ====== */
+header .estilo-menu.activo {
+  color: rgb(14, 74, 121);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
+}
 
 main {
-    color: rgb(242, 235, 227);
-    background-color: rgb(14, 74, 121);
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    gap: 1rem;
-    /* Crea un espacio entre cada lsita  */
+  color: rgb(242, 235, 227);
+  background-color: rgb(14, 74, 121);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+}
+main h1 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+main .seccion-destacada {
+  background-color: rgb(0, 186, 195);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 6px;
+}
+main .seccion-destacada h2 {
+  color: rgb(14, 74, 121);
+  font-size: 1.6rem;
+  text-align: center;
+}
+main .seccion-destacada a {
+  background-color: rgb(14, 74, 121);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  padding: 0.6rem 1.5rem;
+  display: inline-block;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+main .seccion-destacada a:visited {
+  color: rgb(218, 195, 160);
+}
+main .seccion-destacada a:hover {
+  color: rgb(14, 74, 121);
+  transform: scale(1.1);
+  background-color: rgb(0, 255, 217);
+}
+main .seccion-destacada a:active {
+  text-decoration: underline;
+}
+main section {
+  display: flex;
+  justify-content: space-evenly;
+}
+main .articulo-destacado {
+  background-color: rgb(0, 186, 195);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1.5rem;
+  border-radius: 6px;
+}
+main .articulo-destacado img {
+  width: 100%;
+  max-height: 260px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  object-fit: contain;
+  border-radius: 6px;
+  display: block;
+}
+main .articulo-destacado h2 {
+  font-size: 1.4rem;
+  color: rgb(14, 74, 121);
+  text-align: center;
+  margin: 0;
+  padding: 1.5rem;
+}
+main .articulo-destacado p {
+  font-size: 1.1rem;
+  color: rgb(11, 37, 58);
+  text-align: left;
+  margin: 0;
+  padding: 1.5rem;
 }
 
-h1 {
-    font-size: 2.2rem;
-    text-align: center;
-    margin-top: 1rem;
+footer .redes-footer {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
 }
-
-.seccion-destacada {
-    background-color: rgb(0, 186, 195);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    /* profundidad y elevación realista */
-    display: flex;
-    flex-direction: column;
-    /* Los deja uno de bajo del otro */
-    justify-content: center;
-    align-items: center;
-    /* Los Centra en el medio de la pantalla */
-    gap: 1rem;
-    padding: 1.5rem;
-    width: 100%;
-    max-width: 800px;
-    border-radius: 6px;
+footer .redes-footer a {
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-radius 0.2s ease;
 }
-
-.seccion-destacada h2 {
-    color: rgb(14, 74, 121);
-    font-size: 1.6rem;
-    text-align: center;
+footer .redes-footer a:hover {
+  transform: scale(1.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
+  background-color: rgba(0, 255, 217, 0.25);
 }
-
-.seccion-destacada a {
-    background-color: rgb(14, 74, 121);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    /* borde de "ver más" */
-    text-decoration: none;
-    /* Quita el subrayado de "ver más" */
-    padding: 0.6rem 1.5rem;
-    /* agrega mas aire a mi bolsa de papitas en ambas direcciones */
-    display: inline-block;
-    border-radius: 6px;
-    font-weight: 600;
-    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+footer .redes-footer a:hover i {
+  color: rgb(242, 235, 227);
 }
-
-.seccion-destacada a:visited {
-    color: rgb(218, 195, 160);
+footer .redes-footer i {
+  font-size: 1.9rem;
+  color: rgb(14, 74, 121);
+  transition: color 0.2s ease;
 }
-
-.seccion-destacada a:hover {
-    color: rgb(14, 74, 121);
-    transform: scale(1.1);
-    background-color: rgb(0, 255, 217);
+footer p {
+  color: rgb(242, 235, 227);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
 }
-
-.seccion-destacada a:active {
-    text-decoration: underline;
-}
-
-section {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.articulo-destacado {
-    background-color: rgb(0, 186, 195);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.7rem;
-    padding: 1.5rem;
-    border-radius: 6px;
-}
-
-/* Imágenes dentro de las tarjetas */
-
-.articulo-destacado img {
-    width: 100%;
-    max-height: 260px;
-    /* Tope máximo de alto */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    /* profundidad y elevación realista */
-    object-fit: contain;
-    /* Muestra la foto 100% completa sin recortar ningún borde */
-    border-radius: 6px;
-    display: block;
-}
-
-.articulo-destacado h2 {
-    font-size: 1.4rem;
-    color: rgb(14, 74, 121);
-    text-align: center;
-    margin: 0;
-    padding: 1.5rem;
-}
-
-.articulo-destacado p {
-    font-size: 1.1rem;
-    color: rgb(11, 37, 58);
-    text-align: left;
-    margin: 0;
-    padding: 1.5rem;
-}
-
-/* ===== Estilos de elconsultorio.html ===== */
-/* Estilos para el texto descriptivo de las fotos, de la galería*/
-
-figure figcaption {
-    width: 100%;
-    font-size: 1rem;
-    color: rgb(242, 235, 227);
-    font-weight: 600;
-    text-align: center;
-    padding: 0.5rem;
-}
-
-/* ===== elconsultorio.html Grid ===== */
-/* Galería Base (Mobile: 1 columna natural) */
-/* === Mobile First === */
 
 .elconsultorio-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    /* Base Mobil 1 columna */
-    gap: 1rem;
-    /* Un poco de separación entre las imagenes */
-    padding: 1.5rem;
-    /* Un poco más de aire en mi contenedor */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+.elconsultorio-grid figure {
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+  margin: 0;
+  overflow: hidden;
+}
+.elconsultorio-grid figure img {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  display: block;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+.elconsultorio-grid figure figcaption {
+  width: 100%;
+  font-size: 1rem;
+  color: rgb(242, 235, 227);
+  font-weight: 600;
+  text-align: center;
+  padding: 0.5rem;
 }
 
 .escritorio {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .elconsultorio-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .elconsultorio-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 280px 280px 280px;
+    grid-template-areas: "vertical foto3 foto1" "vertical foto4 foto2" "horizontal horizontal horizontal";
+    gap: 1rem;
+  }
+  .movil {
     display: none;
-    /* en Mobil First solo veremos el carrusel, y no la galería de fotos */
-}
-
-.elconsultorio-grid figure {
-    display: flex;
-    flex-direction: column;
-    height: 280px;
-    /* Altura fija */
-    margin: 0;
-    /* No haría falta, al principio del CSS hay un reseteo básico */
-    overflow: hidden;
-    /* Oculta cualquier elemento/contenido que "sobresalga" o se "desborde" de los límites de su elemento contenedor */
-}
-
-.elconsultorio-grid img {
-    width: 100%;
-    /* Para que ocupe todo el ancho disponible del contenedor padre */
-    flex: 1;
-    min-height: 0;
-    /* Para que ocupe todo el alto disponible del conetenedor padre */
+  }
+  .escritorio {
     display: block;
-    object-fit: cover;
-    border-radius: 6px;
-    /* bordes redondeados */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    /* suaviza los bordes */
-}
-
-/* === Tablet (768px a 1023px: 2 columnas naturales) === */
-/* Media Queris / Mis estilos condicionales para tamaño de pantallas */
-
-@media (min-width: 768px) {
-
-    /* a partir de 768 (medida estandar ancho minimo) inclusive o más se aplican los siguientes parametros */
-    .elconsultorio-grid {
-        grid-template-columns: 1fr 1fr;
-        /* 2 columnas que ocupan cada una el mismo espacio */
-    }
-}
-
-/* === Desktop (1024px o más: Grilla por áreas) === */
-/* DevTools: comprobe con la erramienta inspeccionar en mi navegador y funciona a la perfección  */
-
-@media (min-width: 1024px) {
-
-    /* a partir de 1024 inclusive o más se aplican los siguientes parametros */
-    .elconsultorio-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-        /* 3 columnas que ocupan cada una el mismo espacio */
-        grid-template-rows: 280px 280px 280px;
-        /* 3 filas */
-        grid-template-areas:
-            "vertical foto3 foto1"
-            "vertical foto4 foto2"
-            "horizontal horizontal horizontal";
-        gap: 1rem;
-    }
-
-    /* DevTools: comprobe con la herramienta inspeccionar f12 en mi navegador y funciona a la perfección  */
-
-    .movil {
-        display: none;
-        /* se oculta el carrusel */
-    }
-
-    .escritorio {
-        display: block;
-        /* en Desktop solo veremos la gelería de fotos */
-    }
-
-    .elconsultorio-grid figure {
-        height: 100%;
-    }
-
-    .elconsultorio-grid figure:focus {
-        box-shadow: 5px 5px 10px rgb(85, 10, 1);
-        /* coloque el atributo tabindex="0" en galeria.html porque <figure> no es focuseable con el teclado ni al hacer clic */
-    }
-
-    /* Asignación de áreas a cada imagen */
-    /* La asignación de mis areas para las imagenes de Galería, deben estar contenidas dentro de "Media Query" */
-
-    .foto-vertical {
-        grid-area: vertical;
-    }
-
-    .foto-horizontal {
-        grid-area: horizontal;
-    }
-
-    .foto-1 {
-        grid-area: foto1;
-    }
-
-    .foto-2 {
-        grid-area: foto2;
-    }
-
-    .foto-3 {
-        grid-area: foto3;
-    }
-
-    .foto-4 {
-        grid-area: foto4;
-    }
-}
-
-/* ========== tratamientos.html Grid ========== */
-
-.tratamientos-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    /* Base Mobil 1 columna */
-    gap: 1rem;
-    /* Un poco de separación entre las tarjetas de servicios */
-    padding: 1.5rem;
-    /* Un poco más de aire en mi contenedor */
-}
-
-/* Anide un selerctor dentro de otro */
-
-.tratamientos-grid .articulo-destacado {
-    height: 280px;
-    margin: 0;
-    padding: 0.5rem;
-    border-radius: 6px;
-    border-left: 4px solid rgb(85, 10, 1);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-}
-
-.tratamientos-grid .articulo-destacado h2 {
-    font-size: 1.25rem;
-    color: rgb(14, 74, 121);
-    margin: 0;
-    padding-bottom: 0.5rem;
-}
-
-.tratamientos-grid .articulo-destacado p {
-    font-size: 1rem;
-    text-align: left;
-    line-height: 1.5;
-    color: rgb(11, 37, 58);
-    margin: 0;
-}
-
-@media (min-width: 768px) {
-
-    /* a partir de 768 (medida estandar ancho minimo) inclusive o más se aplican los siguientes parametros */
-    .tratamientos-grid {
-        grid-template-columns: 1fr 1fr;
-        /* 2 columnas que ocupan cada una el mismo espacio */
-    }
-}
-
-@media (min-width: 1024px) {
-    .tratamientos-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 280px 280px;
-        grid-template-areas:
-            "art1 art3 art4"
-            "art2 art3 art5";
-        gap: 1rem;
-    }
-
-    .tratamientos-grid .articulo-destacado {
-        height: 100%;
-        /* Cada tarjeta llena su celda asignada */
-    }
-
-    /* Asignación de cada tarjeta a su área */
-
-    .art-1 {
-        grid-area: art1;
-    }
-
-    .art-2 {
-        grid-area: art2;
-    }
-
-    .tratamientos-grid .art-3 {
-        grid-area: art3;
-        height: 280px;
-        align-self: center;
-    }
-
-    .art-4 {
-        grid-area: art4;
-    }
-
-    .art-5 {
-        grid-area: art5;
-    }
-}
-
-/* === Sección de Contacto.html, elementos embebidos <iframe> === */
-/* Contenedor flexible para alinear mapa y video lado a lado */
-
-.contenedor-multimedia {
-    display: flex;
-    flex-wrap: wrap;
-    /* Si la pantalla es chica, bajan a una columna */
-    justify-content: center;
-    /* Centra los dos iframes horizontalmente */
-    align-items: center;
-    gap: 2rem;
-    /* Espacio uniforme entre mapa y video */
-    width: 100%;
-    max-width: 1200px;
-    margin-top: 2.5rem;
-    /* Separación superior respecto al formulario */
-    padding: 1.5rem;
-}
-
-/* Tamaño responsivo para que ningún iframe desborde */
-
-.contenedor-multimedia iframe {
-    flex: 1 1 280px;
-    /* Base mínima de 280px, crecen parejos */
-    width: 100%;
-    max-width: 560px;
-    /* Tope máximo para mantener buena proporción */
-    height: 315px;
-    /* Altura estándar uniforme para ambos */
-    border: none;
-    /* Quita el borde por defecto */
-    border-radius: 6px;
-    /* Bordes redondeados acordes al diseño */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* ========== tukinesiolgo.html Grid ========= */
-/* Base / Mobile / Tablet (menos de 1024px): 1 sola columna ordenada hacia abajo */
-.kine-grid-seccion {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-        "foto1"
-        "articulo"
-        "foto2";
-    gap: 1.5rem;
-    padding: 2rem 1rem;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.kine-articulo {
-    grid-area: articulo;
-    text-align: center;
-}
-
-.kine-foto-1 {
+  }
+  .elconsultorio-grid figure {
+    height: 100%;
+  }
+  .elconsultorio-grid figure:focus {
+    box-shadow: 5px 5px 10px rgb(85, 10, 1);
+  }
+  .foto-vertical {
+    grid-area: vertical;
+  }
+  .foto-horizontal {
+    grid-area: horizontal;
+  }
+  .foto-1 {
     grid-area: foto1;
-    text-align: center;
-}
-
-.kine-foto-2 {
+  }
+  .foto-2 {
     grid-area: foto2;
-    text-align: center;
+  }
+  .foto-3 {
+    grid-area: foto3;
+  }
+  .foto-4 {
+    grid-area: foto4;
+  }
 }
 
-.kine-grid-seccion img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-/* Desktop (1024px en adelante): 2 columnas */
-@media (min-width: 1024px) {
-    .kine-grid-seccion {
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas:
-            "foto1 articulo"
-            "foto2 articulo";
-        gap: 2rem;
-        align-items: center;
-    }
-
-    .kine-articulo {
-        align-self: center;
-        max-width: 420px;
-        margin: 0 auto;
-    }
-
-    .kine-foto-1,
-    .kine-foto-2 {
-        max-width: 380px;
-        margin: 0 auto;
-    }
-}
-
-/* ===== FOOTER ===== */
-/* Contenedor principal */
-footer {
-    background: linear-gradient(200deg, rgb(0, 132, 166) 10%, rgb(0, 186, 195) 50%, rgb(0, 255, 217) 100%);
-    width: 100%;
-    margin-top: 1rem;
-    padding: 1.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-}
-
-/* Lista de redes sociales */
-.redes-footer {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    padding: 0;
-    margin: 0;
-    /* Anula el margen por defecto de Bootstrap */
-}
-
-/* Enlaces de los íconos (formato circular interactivo) */
-.redes-footer a {
-    text-decoration: none;
-    display: inline-flex;
-    /* Permite que el transform funcione correctamente */
-    justify-content: center;
-    align-items: center;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-radius 0.2s ease;
-    /* Trannsiciones sean suaves */
-}
-
-/* Íconos de Bootstrap */
-.redes-footer i {
-    font-size: 1.9rem;
-    color: rgb(14, 74, 121);
-    transition: color 0.2s ease;
-}
-
-/* Efecto hover interactivo: agranda el botón, cambia el color y proyecta sombra */
-.redes-footer a:hover {
-    transform: scale(1.3);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    border-radius: 1rem;
-    background-color: rgba(0, 255, 217, 0.25);
-}
-
-.redes-footer a:hover i {
-    color: rgb(242, 235, 227);
-}
-
-/* Texto de copyright */
-footer p {
-    color: rgb(242, 235, 227);
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin: 0;
-}
+/*# sourceMappingURL=style.css.map */
