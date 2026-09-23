@@ -264,11 +264,9 @@ footer p {
   text-align: center;
   padding: 0.5rem;
 }
-
-.escritorio {
-  display: none;
+.elconsultorio-grid figure:focus {
+  box-shadow: 5px 5px 10px rgb(85, 10, 1);
 }
-
 @media (min-width: 768px) {
   .elconsultorio-grid {
     grid-template-columns: 1fr 1fr;
@@ -276,41 +274,51 @@ footer p {
 }
 @media (min-width: 1024px) {
   .elconsultorio-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 280px 280px 280px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 280px);
     grid-template-areas: "vertical foto3 foto1" "vertical foto4 foto2" "horizontal horizontal horizontal";
     gap: 1rem;
   }
+  .elconsultorio-grid figure {
+    height: 100%;
+  }
+}
+
+.escritorio {
+  display: none;
+}
+
+@media (min-width: 1024px) {
   .movil {
     display: none;
   }
   .escritorio {
     display: block;
   }
-  .elconsultorio-grid figure {
-    height: 100%;
-  }
-  .elconsultorio-grid figure:focus {
-    box-shadow: 5px 5px 10px rgb(85, 10, 1);
-  }
-  .foto-vertical {
-    grid-area: vertical;
-  }
-  .foto-horizontal {
-    grid-area: horizontal;
-  }
-  .foto-1 {
-    grid-area: foto1;
-  }
-  .foto-2 {
-    grid-area: foto2;
-  }
-  .foto-3 {
-    grid-area: foto3;
-  }
-  .foto-4 {
-    grid-area: foto4;
-  }
+}
+.foto-vertical {
+  grid-area: vertical;
+}
+
+.foto-horizontal {
+  grid-area: horizontal;
+}
+
+.foto-1 {
+  grid-area: foto1;
+}
+
+.foto-2 {
+  grid-area: foto2;
+}
+
+.foto-3 {
+  grid-area: foto3;
+}
+
+.foto-4 {
+  grid-area: foto4;
 }
 
 /*# sourceMappingURL=style.css.map */

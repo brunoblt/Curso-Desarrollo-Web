@@ -3,6 +3,8 @@
 @use "../utilities/mixin" as *;
 
 
+// Galería Base (Mobile: 1 columna natural)
+// Mobile First
 .elconsultorio-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -34,32 +36,38 @@
             text-align: center;
             padding: 0.5rem;
         }
+
+        &:focus {
+            box-shadow: 5px 5px 10px $sombra-focus;
+        }
+    }
+
+    // Tablet
+    @include tablet {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    // Desktop
+    @include escritorio {
+        @include grid(repeat(3, 1fr),
+            repeat(3, 280px),
+            "vertical foto3 foto1"
+            "vertical foto4 foto2"
+            "horizontal horizontal horizontal",
+            1rem);
+
+        figure {
+            height: 100%;
+        }
     }
 }
 
+// Utilidades de visualización
 .escritorio {
     display: none;
 }
 
-// Vista de Tablet
-@include tablet {
-    .elconsultorio-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-// Vista de Escritorio "Desktop"
 @include escritorio {
-    .elconsultorio-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 280px 280px 280px;
-        grid-template-areas:
-            "vertical foto3 foto1"
-            "vertical foto4 foto2"
-            "horizontal horizontal horizontal";
-        gap: 1rem;
-    }
-
     .movil {
         display: none;
     }
@@ -67,36 +75,29 @@
     .escritorio {
         display: block;
     }
+}
 
-    .elconsultorio-grid figure {
-        height: 100%;
-    }
+// Asignación de áreas de las fotos
+.foto-vertical {
+    grid-area: vertical;
+}
 
-    .elconsultorio-grid figure:focus {
-        box-shadow: 5px 5px 10px $sombra-focus;
-    }
+.foto-horizontal {
+    grid-area: horizontal;
+}
 
-    .foto-vertical {
-        grid-area: vertical;
-    }
+.foto-1 {
+    grid-area: foto1;
+}
 
-    .foto-horizontal {
-        grid-area: horizontal;
-    }
+.foto-2 {
+    grid-area: foto2;
+}
 
-    .foto-1 {
-        grid-area: foto1;
-    }
+.foto-3 {
+    grid-area: foto3;
+}
 
-    .foto-2 {
-        grid-area: foto2;
-    }
-
-    .foto-3 {
-        grid-area: foto3;
-    }
-
-    .foto-4 {
-        grid-area: foto4;
-    }
+.foto-4 {
+    grid-area: foto4;
 }
