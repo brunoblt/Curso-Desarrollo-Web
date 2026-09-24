@@ -2,19 +2,34 @@
 @use "../utilities/extend" as *;
 @use "../utilities/mixin" as *;
 
+// solo veremos en Carrusel en Movil
+.movil {
+    display: block;
+}
 
-// Galería Base (Mobile: 1 columna natural)
-// Mobile First
+.escritorio {
+    display: none;
+}
+
+// en Desktop solo veremos la gelería de fotos
+@include escritorio {
+    .movil {
+        display: none;
+    }
+
+    .escritorio {
+        display: block;
+    }
+}
+
 .elconsultorio-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 
+    // Existencia de un Carrusel antes de 1024px
     figure {
         display: flex;
         flex-direction: column;
-        height: 280px;
         margin: 0;
         overflow: hidden;
 
@@ -42,12 +57,7 @@
         }
     }
 
-    // Tablet
-    @include tablet {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    // Desktop
+    //Desktop (1024px+): Grid áreas
     @include escritorio {
         @include grid(repeat(3, 1fr),
             repeat(3, 280px),
@@ -59,45 +69,30 @@
         figure {
             height: 100%;
         }
+
+        // Asignación de áreas
+        .foto-vertical {
+            grid-area: vertical;
+        }
+
+        .foto-horizontal {
+            grid-area: horizontal;
+        }
+
+        .foto-1 {
+            grid-area: foto1;
+        }
+
+        .foto-2 {
+            grid-area: foto2;
+        }
+
+        .foto-3 {
+            grid-area: foto3;
+        }
+
+        .foto-4 {
+            grid-area: foto4;
+        }
     }
-}
-
-// Utilidades de visualización
-.escritorio {
-    display: none;
-}
-
-@include escritorio {
-    .movil {
-        display: none;
-    }
-
-    .escritorio {
-        display: block;
-    }
-}
-
-// Asignación de áreas de las fotos
-.foto-vertical {
-    grid-area: vertical;
-}
-
-.foto-horizontal {
-    grid-area: horizontal;
-}
-
-.foto-1 {
-    grid-area: foto1;
-}
-
-.foto-2 {
-    grid-area: foto2;
-}
-
-.foto-3 {
-    grid-area: foto3;
-}
-
-.foto-4 {
-    grid-area: foto4;
 }

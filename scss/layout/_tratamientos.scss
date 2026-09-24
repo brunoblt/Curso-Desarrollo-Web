@@ -1,0 +1,77 @@
+@use "../utilities/variables" as *;
+@use "../utilities/extend" as *;
+@use "../utilities/mixin" as *;
+
+
+// Mobile First (1 columna natural)
+.tratamientos-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+
+    .articulo-destacado {
+        height: 280px;
+        margin: 0;
+        padding: 0.5rem;
+        border-radius: 6px;
+        border-left: 4px solid $sombra-focus;
+        box-shadow: 0 2px 4px $sombra-imagenes;
+
+        h2 {
+            font-size: 1.25rem;
+            color: $color-azul-profundo;
+            margin: 0;
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+            text-align: left;
+            line-height: 1.5;
+            color: rgb(11, 37, 58);
+            margin: 0;
+        }
+    }
+
+    // Tablet (ej. 768px a 1023px): 2 columnas automáticas
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    // Desktop (1024px+): Grid áreas
+    @include escritorio {
+        @include grid(repeat(3, 1fr),
+            repeat(2, 280px),
+            "art1 art3 art4"
+            "art2 art3 art5",
+            1rem);
+
+        .articulo-destacado {
+            height: 100%;
+        }
+
+        // Asignación de áreas
+        .art-1 {
+            grid-area: art1;
+        }
+
+        .art-2 {
+            grid-area: art2;
+        }
+
+        .art-3 {
+            grid-area: art3;
+            height: 280px;
+            align-self: center;
+        }
+
+        .art-4 {
+            grid-area: art4;
+        }
+
+        .art-5 {
+            grid-area: art5;
+        }
+    }
+}

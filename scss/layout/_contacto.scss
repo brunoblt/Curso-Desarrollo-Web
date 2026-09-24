@@ -1,0 +1,22 @@
+@use "../utilities/variables" as *;
+@use "../utilities/extend" as *;
+@use "../utilities/mixin" as *;
+
+.contenedor-multimedia {
+    @include flex(row, center, center, 2rem);
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+
+    iframe {
+        flex: 1 1 280px;
+        width: 100%;
+        max-width: 560px;
+        height: 315px;
+        border: none;
+        border-radius: 6px;
+        box-shadow: 0 4px 6px $sombra-imagenes;
+    }
+}

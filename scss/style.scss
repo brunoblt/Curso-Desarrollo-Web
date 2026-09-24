@@ -5,9 +5,12 @@
 @use "base/reseteo";
 @use "base/generales";
 
+@use "components/tarjetas";
+
 @use "layout/header";
 @use "layout/main";
 @use "layout/footer";
 @use "layout/elconsultorio";
-
-@use "components/tarjetas";
+@use "layout/tratamientos";
+@use "layout/contacto";
+@use "layout/tukinesiologo";

@@ -17,7 +17,7 @@ header {
 
     nav ul {
         list-style: none;
-        @include flex(null, center, space-evenly, 1.5rem);
+        @include flex(row, center, space-evenly, 1.5rem);
     }
 
     .hamburguesa {

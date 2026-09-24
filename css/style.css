@@ -40,6 +40,42 @@ img {
   display: block;
 }
 
+.articulo-destacado {
+  background-color: rgb(0, 186, 195);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  padding: 1.5rem;
+  border-radius: 6px;
+}
+.articulo-destacado img {
+  width: 100%;
+  max-height: 260px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  object-fit: contain;
+  border-radius: 6px;
+  display: block;
+}
+.articulo-destacado h2 {
+  font-size: 1.4rem;
+  color: rgb(14, 74, 121);
+  text-align: center;
+  margin: 0;
+  padding: 1rem;
+}
+.articulo-destacado p {
+  font-size: 1.1rem;
+  color: rgb(11, 37, 58);
+  text-align: left;
+  margin: 0;
+  padding: 1.5rem;
+}
+
 header img {
   width: 11rem;
   max-width: 100%;
@@ -50,6 +86,7 @@ header img {
 header nav ul {
   list-style: none;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
   gap: 1.5rem;
@@ -157,46 +194,16 @@ main .seccion-destacada a:active {
 }
 main section {
   display: flex;
-  justify-content: space-evenly;
-}
-main .articulo-destacado {
-  background-color: rgb(0, 186, 195);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 0.7rem;
-  padding: 1.5rem;
-  border-radius: 6px;
-}
-main .articulo-destacado img {
-  width: 100%;
-  max-height: 260px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  object-fit: contain;
-  border-radius: 6px;
-  display: block;
-}
-main .articulo-destacado h2 {
-  font-size: 1.4rem;
-  color: rgb(14, 74, 121);
-  text-align: center;
-  margin: 0;
-  padding: 1.5rem;
-}
-main .articulo-destacado p {
-  font-size: 1.1rem;
-  color: rgb(11, 37, 58);
-  text-align: left;
-  margin: 0;
-  padding: 1.5rem;
+  justify-content: space-evenly;
+  gap: 0rem;
 }
 
 footer .redes-footer {
   list-style: none;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 1rem;
@@ -234,16 +241,29 @@ footer p {
   margin: 0;
 }
 
+.movil {
+  display: block;
+}
+
+.escritorio {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .movil {
+    display: none;
+  }
+  .escritorio {
+    display: block;
+  }
+}
 .elconsultorio-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  padding: 1.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 .elconsultorio-grid figure {
   display: flex;
   flex-direction: column;
-  height: 280px;
   margin: 0;
   overflow: hidden;
 }
@@ -267,11 +287,6 @@ footer p {
 .elconsultorio-grid figure:focus {
   box-shadow: 5px 5px 10px rgb(85, 10, 1);
 }
-@media (min-width: 768px) {
-  .elconsultorio-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
 @media (min-width: 1024px) {
   .elconsultorio-grid {
     display: grid;
@@ -283,42 +298,156 @@ footer p {
   .elconsultorio-grid figure {
     height: 100%;
   }
+  .elconsultorio-grid .foto-vertical {
+    grid-area: vertical;
+  }
+  .elconsultorio-grid .foto-horizontal {
+    grid-area: horizontal;
+  }
+  .elconsultorio-grid .foto-1 {
+    grid-area: foto1;
+  }
+  .elconsultorio-grid .foto-2 {
+    grid-area: foto2;
+  }
+  .elconsultorio-grid .foto-3 {
+    grid-area: foto3;
+  }
+  .elconsultorio-grid .foto-4 {
+    grid-area: foto4;
+  }
 }
 
-.escritorio {
-  display: none;
+.tratamientos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
 }
-
+.tratamientos-grid .articulo-destacado {
+  height: 280px;
+  margin: 0;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border-left: 4px solid rgb(85, 10, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+.tratamientos-grid .articulo-destacado h2 {
+  font-size: 1.25rem;
+  color: rgb(14, 74, 121);
+  margin: 0;
+  padding-bottom: 0.5rem;
+}
+.tratamientos-grid .articulo-destacado p {
+  font-size: 1rem;
+  text-align: left;
+  line-height: 1.5;
+  color: rgb(11, 37, 58);
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .tratamientos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 @media (min-width: 1024px) {
-  .movil {
-    display: none;
+  .tratamientos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 280px);
+    grid-template-areas: "art1 art3 art4" "art2 art3 art5";
+    gap: 1rem;
   }
-  .escritorio {
-    display: block;
+  .tratamientos-grid .articulo-destacado {
+    height: 100%;
   }
-}
-.foto-vertical {
-  grid-area: vertical;
+  .tratamientos-grid .art-1 {
+    grid-area: art1;
+  }
+  .tratamientos-grid .art-2 {
+    grid-area: art2;
+  }
+  .tratamientos-grid .art-3 {
+    grid-area: art3;
+    height: 280px;
+    align-self: center;
+  }
+  .tratamientos-grid .art-4 {
+    grid-area: art4;
+  }
+  .tratamientos-grid .art-5 {
+    grid-area: art5;
+  }
 }
 
-.foto-horizontal {
-  grid-area: horizontal;
+.contenedor-multimedia {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+}
+.contenedor-multimedia iframe {
+  flex: 1 1 280px;
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
 }
 
-.foto-1 {
+.kine-grid-seccion {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "foto1" "articulo" "foto2";
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.kine-grid-seccion img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.kine-grid-seccion .kine-articulo {
+  grid-area: articulo;
+  text-align: center;
+}
+.kine-grid-seccion .kine-foto-1 {
   grid-area: foto1;
+  text-align: center;
 }
-
-.foto-2 {
+.kine-grid-seccion .kine-foto-2 {
   grid-area: foto2;
+  text-align: center;
 }
-
-.foto-3 {
-  grid-area: foto3;
-}
-
-.foto-4 {
-  grid-area: foto4;
+@media (min-width: 1024px) {
+  .kine-grid-seccion {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "foto1 articulo" "foto2 articulo";
+    gap: 2rem;
+    align-items: center;
+  }
+  .kine-grid-seccion .kine-articulo {
+    align-self: center;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .kine-grid-seccion .kine-foto-1,
+  .kine-grid-seccion .kine-foto-2 {
+    max-width: 380px;
+    margin: 0 auto;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

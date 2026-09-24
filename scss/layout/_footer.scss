@@ -8,7 +8,7 @@ footer {
 
     .redes-footer {
         list-style: none;
-        @include flex(null, center, center, 1rem);
+        @include flex(row, center, center, 1rem);
         padding: 0;
         margin: 0;
 

@@ -1,0 +1,38 @@
+@use "../utilities/variables" as *;
+@use "../utilities/extend" as *;
+@use "../utilities/mixin" as *;
+
+.articulo-destacado {
+    background-color: $color-turquesa;
+    box-shadow: 0 4px 12px $sombra-imagenes;
+    width: 100%;
+    height: 100%;
+    @include flex(column, center, center, 0.7rem);
+    padding: 1.5rem;
+    border-radius: 6px;
+
+    img {
+        width: 100%;
+        max-height: 260px;
+        box-shadow: 0 4px 12px $sombra-imagenes;
+        object-fit: contain;
+        border-radius: 6px;
+        display: block;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+        color: $color-azul-profundo;
+        text-align: center;
+        margin: 0;
+        padding: 1rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+        color: $color-parrafo;
+        text-align: left;
+        margin: 0;
+        padding: 1.5rem;
+    }
+}
