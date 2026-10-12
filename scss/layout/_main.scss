@@ -14,6 +14,37 @@ main {
         margin-top: 1rem;
     }
 
+    @keyframes halo {
+
+        0% {
+            box-shadow: none;
+        }
+
+        50% {
+            box-shadow: 0 0 15px 10px $color-azul-oceano;
+        }
+
+        100% {
+            box-shadow: none;
+        }
+
+    }
+
+    @keyframes luz-boton {
+
+        0% {
+            box-shadow: none;
+        }
+
+        50% {
+            box-shadow: 0 0 15px 10px $color-azul-medio;
+        }
+
+        100% {
+            box-shadow: none;
+        }
+    }
+
     .seccion-destacada {
         background-color: $color-turquesa;
         box-shadow: 0 4px 12px $sombra-imagenes;
@@ -22,6 +53,10 @@ main {
         width: 100%;
         max-width: 800px;
         border-radius: 6px;
+        perspective: 600px;
+        animation-name: halo;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
 
         h2 {
             color: $color-azul-profundo;
@@ -37,8 +72,10 @@ main {
             display: inline-block;
             border-radius: 6px;
             font-weight: 600;
-            transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-
+            transition: $transicion-interactiva;
+            will-change: transform;
+            // name, duration, timing-fuction, delay, interation-count
+            animation: luz-boton 1s ease-out 0.5s 2;
 
             &:visited {
                 color: $color-visitado;
@@ -46,12 +83,13 @@ main {
 
             &:hover {
                 color: $color-azul-profundo;
-                transform: scale(1.1);
+                transform: $transform-hover;
                 background-color: $color-cian-brillante;
             }
 
             &:active {
                 text-decoration: underline;
+                transform: $transform-active;
             }
         }
     }

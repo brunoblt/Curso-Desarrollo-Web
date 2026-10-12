@@ -10,7 +10,7 @@ $fuente: "Poppins", sans-serif;
 
 // Textos
 $color-texto-claro: rgb(242, 235, 227);
-$color-parrafo:rgb(11, 37, 58);
+$color-parrafo: rgb(11, 37, 58);
 
 // Sombreado
 $sombra-imagenes: rgba(0, 0, 0, 0.25);
@@ -19,3 +19,10 @@ $color-fondo: rgba(14, 74, 121, 0.15);
 
 // LVHA
 $color-visitado: rgb(218, 195, 160);
+
+// Transición general para interactividad
+$transicion-interactiva: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, border-radius 0.25s ease, color 0.2s ease;
+
+// Transformaciones 3D
+$transform-hover: translate3d(0, -3px, 10px) scale3d(1.05, 1.05, 1);
+$transform-active: translate3d(0, 0, 0) scale3d(0.95, 0.95, 1);

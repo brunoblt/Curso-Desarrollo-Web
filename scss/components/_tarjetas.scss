@@ -3,9 +3,8 @@
 @use "../utilities/mixin" as *;
 
 .articulo-destacado {
-    background-color: $color-turquesa;
+    @extend %estructura-articulo;
     box-shadow: 0 4px 12px $sombra-imagenes;
-    width: 100%;
     height: 100%;
     @include flex(column, center, center, 0.7rem);
     padding: 1.5rem;
@@ -18,6 +17,11 @@
         object-fit: contain;
         border-radius: 6px;
         display: block;
+        transition: transform 0.25s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 
     h2 {

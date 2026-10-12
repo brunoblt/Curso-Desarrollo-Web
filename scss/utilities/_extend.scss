@@ -3,8 +3,14 @@
 
 // Molde base con lo que comparten ambas barras
 %estructura-barra {
-    background: linear-gradient(200deg, $color-azul-oceano 10%, $color-turquesa 50%, $color-cian-brillante 100%);
+    background: $color-azul-oceano;
+    background: linear-gradient(220deg, $color-azul-oceano 0%, $color-turquesa 50%, $color-cian-brillante 100%);
     width: 100%;
+}
+
+%estructura-articulo {
+    background: $color-cian-brillante;
+    background: linear-gradient(0deg, $color-cian-brillante 0%, $color-turquesa 100%);
 }
 
 // Estructura HEADER
